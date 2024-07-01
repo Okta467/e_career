@@ -31,7 +31,8 @@
                     
                     <div class="mb-3">
                       <label class="small mb-1" for="inputPassword">Username</label>
-                      <input name="xusername" type="text" class="form-control" id="xusername" placeholder="Enter username" autocomplete="username" />
+                      <input name="xusername" type="text" class="form-control mb-1" id="xusername" placeholder="Enter username" autocomplete="username" />
+                      <small class="text-muted">Untuk alumni, gunakan NISN untuk login, atau hubungi admin jika masih salah.</small>
                     </div>
                     
                     <div class="mb-3">
@@ -54,6 +55,7 @@
                   </form>
                 </div>
                 <div class="card-footer text-center">
+                  <div class="small">Daftar sebagai <a href="alumni_registration.php">Alumni</a> atau <a href="perusahaan_registration.php">Perusahaan</a></div>
                 </div>
               </div>
             </div>
