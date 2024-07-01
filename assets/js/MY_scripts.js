@@ -85,8 +85,10 @@ function initIsPasswordSame(elPassword, elPasswordConfirm, elPasswordHelp, elPas
  * @param {JQuery} selector - A jQuery selector to identify the elements to operate on.
  * @param {string} event - One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
  * @param {HTMLFormElement} form - The form element to be submitted. Default: `$(this).parents('.modal-content').find('form')`
+ * @param {HTMLFormElement} submit - The hidden input submit element that will be appended to the form.
+ * This is due to `form.submit()` doesn't act as button that has name and value that is necessary e.g. for input checking
  */
-function toggleSwalSubmit(selector, event, form) {
+function toggleSwalSubmit(selector, event, form, submit) {
     var form = form ?? selector.parents('.modal-content').find('form');
 
     selector.on(event, function (e) {
@@ -112,6 +114,10 @@ function toggleSwalSubmit(selector, event, form) {
                         icon: "success",
                         timer: 3000
                     }).then(() => {
+                        if (submit) {
+                            submit.appendTo(form);
+                        }
+
                         form.submit();
                     });
                 }
