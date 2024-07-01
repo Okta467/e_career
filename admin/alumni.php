@@ -168,9 +168,7 @@ else :
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title"><i data-feather="info" class="me-2"></i>Detail Alumni</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             
@@ -201,7 +199,7 @@ else :
           
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            <button class="btn btn-light border" type="button" data-bs-dismiss="modal">Tutup</button>
           </div>
         </div>
       </div>
