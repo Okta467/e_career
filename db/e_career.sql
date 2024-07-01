@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2024 at 03:58 PM
+-- Generation Time: Jul 01, 2024 at 05:59 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -53,6 +53,15 @@ INSERT INTO `tbl_alumni` (`id`, `id_pengguna`, `id_kelas`, `nisn`, `nama_alumni`
 (4, NULL, 31, '9997672534', 'Arief Rahman', 'l', 'Jakabaring', 'Palembang', '2024-05-27', '087700111100', 'ariefrahman@gmail.com', '2024-06-30 02:44:24', '2024-06-30 02:44:24'),
 (5, NULL, 31, '9987652345', 'Benny Setiawan', 'l', 'Palembang', 'Palembang', '1998-05-01', '6262620819920019', 'bennysetiawan@gmail.com', '2024-06-30 02:44:24', '2024-06-30 02:44:24'),
 (6, NULL, 31, '1278567890', 'Nelam Salmah', 'l', 'Palembang', 'Palembang', '1999-06-12', '6262626208786523', 'nelamsalmah@gmail.com', '2024-06-30 13:16:11', '2024-06-30 13:16:11');
+
+--
+-- Triggers `tbl_alumni`
+--
+DELIMITER $$
+CREATE TRIGGER `trigger_delete_in_tbl_pengguna` AFTER DELETE ON `tbl_alumni` FOR EACH ROW DELETE FROM `tbl_pengguna`
+WHERE `tbl_pengguna`.`id` = OLD.`id_pengguna`
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -493,7 +502,7 @@ CREATE TABLE `tbl_pengguna` (
 --
 
 INSERT INTO `tbl_pengguna` (`id`, `username`, `password`, `hak_akses`, `created_at`, `last_login`) VALUES
-(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2024-07-01 06:49:08'),
+(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2024-07-01 10:37:01'),
 (23, 'okta467', '$2y$10$0BEb6jl.Z7dieqJQHShYruxxEarz6AsswLg4EoAImdC0XAirF/OEO', 'alumni', '2024-06-24 18:13:00', '2024-06-30 19:00:26'),
 (24, 'bimasatria', '$2y$10$PJ0tlPZHqurX0xzM2NA.XO3AXBpKr6oPbWI6m2u2V8haaDMfpk2J.', 'alumni', '2024-06-24 18:17:17', NULL),
 (25, '196506121990022003', '$2y$10$r6i9ouw57cTTevcboVpfxuaaeGE.LqvH0ivtFunGnpjhus3jtxu1q', 'kepala_sekolah', '2024-06-24 18:29:06', '2024-06-27 13:22:34'),
@@ -707,7 +716,7 @@ ALTER TABLE `tbl_tahun_seleksi`
 -- AUTO_INCREMENT for table `tbl_alumni`
 --
 ALTER TABLE `tbl_alumni`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_guru`
@@ -785,7 +794,7 @@ ALTER TABLE `tbl_pendidikan`
 -- AUTO_INCREMENT for table `tbl_pengguna`
 --
 ALTER TABLE `tbl_pengguna`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `tbl_perusahaan`
