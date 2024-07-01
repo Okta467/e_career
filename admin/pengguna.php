@@ -546,7 +546,7 @@ else :
       
         
         $('.toggle_modal_tambah').on('click', function() {
-          $('#ModalInputPengguna .modal-title').html(`<i data-feather="user-plus" class="mr-2"></i>Tambah Pengguna`);
+          $('#ModalInputPengguna .modal-title').html(`<i data-feather="user-plus" class="me-2 mt-1"></i>Tambah Pengguna`);
           $('#ModalInputPengguna form').attr({action: 'pengguna_tambah.php', method: 'post'});
 
           $('#ModalInputPengguna .xid_alumni_help').html('Nama alumni yang muncul yaitu yang tidak memiliki user.');
@@ -584,6 +584,9 @@ else :
           });
           
           $('#xhak_akses').on('change', handleHakAksesChange());
+          
+          // Re-init all feather icons
+          feather.replace();
         
           $('#ModalInputPengguna').modal('show');
         });
@@ -592,7 +595,7 @@ else :
         $('.toggle_modal_ubah').on('click', function() {
           const data = $(this).data();
         
-          $('#ModalInputPengguna .modal-title').html(`<i data-feather="user-check" class="mr-2"></i>Tambah Pengguna`);
+          $('#ModalInputPengguna .modal-title').html(`<i data-feather="user-check" class="me-2 mt-1"></i>Ubah Pengguna`);
           $('#ModalInputPengguna form').attr({action: 'pengguna_ubah.php', method: 'post'});
           
           // Detach (off) the change handler for repopulating options
@@ -652,6 +655,9 @@ else :
           toggleUsernamePassword(disableUsername, disablePassword, usernameVal, false);
           
           $('#xhak_akses').on('change', handleHakAksesChange('with_user', data.id_alumni, data.id_guru, data.id_perusahaan));
+          
+          // Re-init all feather icons
+          feather.replace();
         
           $('#ModalInputPengguna').modal('show');
         });
