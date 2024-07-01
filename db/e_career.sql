@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2024 at 05:59 PM
+-- Generation Time: Jul 01, 2024 at 06:47 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -52,13 +52,14 @@ INSERT INTO `tbl_alumni` (`id`, `id_pengguna`, `id_kelas`, `nisn`, `nama_alumni`
 (3, 24, 31, '9991814872', 'Bima Satria', 'l', 'Gang Duren', 'Palembang', '2024-05-08', '087765432345', 'bimasatria@gmail.com', '2024-06-30 02:44:24', '2024-06-30 02:44:24'),
 (4, NULL, 31, '9997672534', 'Arief Rahman', 'l', 'Jakabaring', 'Palembang', '2024-05-27', '087700111100', 'ariefrahman@gmail.com', '2024-06-30 02:44:24', '2024-06-30 02:44:24'),
 (5, NULL, 31, '9987652345', 'Benny Setiawan', 'l', 'Palembang', 'Palembang', '1998-05-01', '6262620819920019', 'bennysetiawan@gmail.com', '2024-06-30 02:44:24', '2024-06-30 02:44:24'),
-(6, NULL, 31, '1278567890', 'Nelam Salmah', 'l', 'Palembang', 'Palembang', '1999-06-12', '6262626208786523', 'nelamsalmah@gmail.com', '2024-06-30 13:16:11', '2024-06-30 13:16:11');
+(6, NULL, 31, '1278567890', 'Nelam Salmah', 'l', 'Palembang', 'Palembang', '1999-06-12', '6262626208786523', 'nelamsalmah@gmail.com', '2024-06-30 13:16:11', '2024-06-30 13:16:11'),
+(11, 42, 34, '9986024922', 'Alumni Mendaftar', 'l', 'Palembang', 'Palembang', '1995-01-01', '0867523678', 'alumni_mendaftar@gmail.com', '2024-07-01 16:03:25', NULL);
 
 --
 -- Triggers `tbl_alumni`
 --
 DELIMITER $$
-CREATE TRIGGER `trigger_delete_in_tbl_pengguna` AFTER DELETE ON `tbl_alumni` FOR EACH ROW DELETE FROM `tbl_pengguna`
+CREATE TRIGGER `trigger_delete_tbl_pengguna_after_delete_tbl_alumni` AFTER DELETE ON `tbl_alumni` FOR EACH ROW DELETE FROM `tbl_pengguna`
 WHERE `tbl_pengguna`.`id` = OLD.`id_pengguna`
 $$
 DELIMITER ;
@@ -502,14 +503,16 @@ CREATE TABLE `tbl_pengguna` (
 --
 
 INSERT INTO `tbl_pengguna` (`id`, `username`, `password`, `hak_akses`, `created_at`, `last_login`) VALUES
-(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2024-07-01 10:37:01'),
+(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2024-07-01 11:43:49'),
 (23, 'okta467', '$2y$10$0BEb6jl.Z7dieqJQHShYruxxEarz6AsswLg4EoAImdC0XAirF/OEO', 'alumni', '2024-06-24 18:13:00', '2024-06-30 19:00:26'),
 (24, 'bimasatria', '$2y$10$PJ0tlPZHqurX0xzM2NA.XO3AXBpKr6oPbWI6m2u2V8haaDMfpk2J.', 'alumni', '2024-06-24 18:17:17', NULL),
 (25, '196506121990022003', '$2y$10$r6i9ouw57cTTevcboVpfxuaaeGE.LqvH0ivtFunGnpjhus3jtxu1q', 'kepala_sekolah', '2024-06-24 18:29:06', '2024-06-27 13:22:34'),
-(33, 'bankbri', '$2y$10$TN/rveG929csN1Cbx3xhAeR0cNtWVTNlgafk9Z37E0ZgkCUqNmx66', 'perusahaan', '2024-06-26 13:30:09', '2024-06-29 19:35:47'),
+(33, 'bankbri', '$2y$10$TN/rveG929csN1Cbx3xhAeR0cNtWVTNlgafk9Z37E0ZgkCUqNmx66', 'perusahaan', '2024-06-26 13:30:09', '2024-07-01 11:43:46'),
 (34, 'iconplus', '$2y$10$nQRKxiCx.1L39VwkwEF3buNhiqt7TuDHat6P5IiWucR0VPSZeCBKa', 'perusahaan', '2024-06-27 00:30:37', NULL),
 (35, '1989986520190220', '$2y$10$I32/sA1ZI3lAnUTAOmbNV.AnHZaLXF0tjOLOfO8kFdZ14v8am73Te', 'guru', '2024-06-27 14:46:25', NULL),
-(36, 'paninasset', '$2y$10$DF.BZjYIVNy9kPkyMsPnjOTengyiL./OJMgg/xwdpxf3u1Ig4DENS', 'perusahaan', '2024-06-30 23:32:00', NULL);
+(36, 'paninasset', '$2y$10$DF.BZjYIVNy9kPkyMsPnjOTengyiL./OJMgg/xwdpxf3u1Ig4DENS', 'perusahaan', '2024-06-30 23:32:00', NULL),
+(42, '9986024922', '$2y$10$e4VH3f3ONL6hDMqubypEVuZF6twqHD1d4h4ZT6eAcN3beHkbV93LC', 'alumni', '2024-07-01 16:03:25', '2024-07-01 11:22:10'),
+(43, 'bankbni', '$2y$10$4aDmp/oKXi9TIxy/QpXvReSgT3r1tF.DbVO10D/ckoL8udCelYp9a', 'perusahaan', '2024-07-01 16:43:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -534,7 +537,17 @@ CREATE TABLE `tbl_perusahaan` (
 INSERT INTO `tbl_perusahaan` (`id`, `id_pengguna`, `id_jenis_perusahaan`, `nama_perusahaan`, `alamat_perusahaan`, `created_at`, `updated_at`) VALUES
 (3, 33, 1, 'PT Bank Rakyat Indonesia Tbk.', 'Gedung BRI JL Jenderal Sudirman Kav. 44-46, Jakarta, 10210, Indonesia', '2024-06-26 11:42:03', '2024-06-26 13:30:09'),
 (5, 34, 3, 'PT Icon Plus', 'SBU SUMBAGSEL, Jl. Demang Lebar Daun No.375, Demang Lebar Daun, Kec. Ilir Bar. I, Kota Palembang, Sumatera Selatan, 30131', '2024-06-27 00:30:37', NULL),
-(6, 36, 3, 'PT Panin Asset Management', 'Stock Exchange Building Tower I Lt. 3 Suite 306 Jl. Jend. Sudirman Kav. 52-53 Jakarta 12190', '2024-06-30 23:32:00', NULL);
+(6, 36, 3, 'PT Panin Asset Management', 'Stock Exchange Building Tower I Lt. 3 Suite 306 Jl. Jend. Sudirman Kav. 52-53 Jakarta 12190', '2024-06-30 23:32:00', NULL),
+(7, 43, 3, 'Bank Negara Indonesia', 'Gedung Grha BNI JL Jenderal Sudirman Kav. 1, Jakarta Pusat, 10220, Indonesia', '2024-07-01 16:43:36', NULL);
+
+--
+-- Triggers `tbl_perusahaan`
+--
+DELIMITER $$
+CREATE TRIGGER `trigger_delete_tbl_pengguna_after_delete_tbl_perusahaan` AFTER DELETE ON `tbl_perusahaan` FOR EACH ROW DELETE FROM `tbl_pengguna`
+WHERE `tbl_pengguna`.`id` = OLD.`id_pengguna`
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -716,7 +729,7 @@ ALTER TABLE `tbl_tahun_seleksi`
 -- AUTO_INCREMENT for table `tbl_alumni`
 --
 ALTER TABLE `tbl_alumni`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_guru`
@@ -794,13 +807,13 @@ ALTER TABLE `tbl_pendidikan`
 -- AUTO_INCREMENT for table `tbl_pengguna`
 --
 ALTER TABLE `tbl_pengguna`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `tbl_perusahaan`
 --
 ALTER TABLE `tbl_perusahaan`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_prestasi_alumni`
