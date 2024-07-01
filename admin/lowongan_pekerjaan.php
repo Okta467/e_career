@@ -101,12 +101,19 @@ else :
                       ORDER BY a.id DESC");
 
                     while ($lowongan_pekerjaan = mysqli_fetch_assoc($query_lowongan_pekerjaan)):
-                      $formatted_batas_bawah_gaji = number_format($lowongan_pekerjaan['batas_bawah_gaji'], 0, ',', '.');
-                      $formatted_batas_atas_gaji = number_format($lowongan_pekerjaan['batas_atas_gaji'], 0, ',', '.');
+                      $batas_bawah_gaji = $lowongan_pekerjaan['batas_bawah_gaji'] ?? null;
+                      $batas_atas_gaji = $lowongan_pekerjaan['batas_atas_gaji'] ?? null;
                       
-                      $gaji = !isset($lowongan_pekerjaan['batas_atas_gaji'])
-                        ? "Rp{$formatted_batas_bawah_gaji}"
-                        : "Rp{$formatted_batas_bawah_gaji} - Rp{$formatted_batas_atas_gaji}";
+                      if (!$batas_bawah_gaji && !$batas_atas_gaji):
+                        $gaji = '<small class="text-muted">Tidak ditampilkan</small>';
+                      else:
+                        $formatted_batas_bawah_gaji = number_format($batas_bawah_gaji, 0, ',', '.');
+                        $formatted_batas_atas_gaji = number_format($batas_atas_gaji, 0, ',', '.');
+                        
+                        $gaji = !$batas_atas_gaji
+                          ? "Rp{$formatted_batas_bawah_gaji}"
+                          : "Rp{$formatted_batas_bawah_gaji} - Rp{$formatted_batas_atas_gaji}";
+                      endif;
 
                       $link_ubah_lowongan = "lowongan_pekerjaan_halaman_tambah_or_ubah.php?go=lowongan_pekerjaan";
                       $link_ubah_lowongan .= "&id_lowongan={$lowongan_pekerjaan['id_lowongan']}";
