@@ -106,6 +106,7 @@ else :
                       
                       if (!$batas_bawah_gaji && !$batas_atas_gaji):
                         $gaji = '<small class="text-muted">Tidak ditampilkan</small>';
+                        $tipe_gaji = '<small class="text-muted">-</small>';
                       else:
                         $formatted_batas_bawah_gaji = number_format($batas_bawah_gaji, 0, ',', '.');
                         $formatted_batas_atas_gaji = number_format($batas_atas_gaji, 0, ',', '.');
@@ -113,6 +114,8 @@ else :
                         $gaji = !$batas_atas_gaji
                           ? "Rp{$formatted_batas_bawah_gaji}"
                           : "Rp{$formatted_batas_bawah_gaji} - Rp{$formatted_batas_atas_gaji}";
+
+                        $tipe_gaji = ucfirst($lowongan_pekerjaan['tipe_gaji']);
                       endif;
 
                       $link_ubah_lowongan = "lowongan_pekerjaan_halaman_tambah_or_ubah.php?go=lowongan_pekerjaan";
@@ -123,11 +126,15 @@ else :
                         <td><?= $no++ ?></td>
                         <td><?= $lowongan_pekerjaan['nama_perusahaan'] ?></td>
                         <td><?= $lowongan_pekerjaan['jenis_pekerjaan'] ?></td>
-                        <td><?= $lowongan_pekerjaan['klasifikasi_pekerjaan'] ?></td>
+                        <td>
+                          <div class="ellipsis toggle_tooltip" title="<?= $lowongan_pekerjaan['klasifikasi_pekerjaan'] ?>">
+                            <?= $lowongan_pekerjaan['klasifikasi_pekerjaan'] ?>
+                          </div>
+                        </td>
                         <td><?= $lowongan_pekerjaan['nama_lowongan'] ?></td>
                         <td><?= $lowongan_pekerjaan['penempatan'] ?></td>
                         <td><?= $gaji ?></td>
-                        <td><?= ucfirst($lowongan_pekerjaan['tipe_gaji']) ?></td>
+                        <td><?= $tipe_gaji ?></td>
                         <td>
                           <button type="button" class="btn btn-xs rounded-pill btn-outline-primary toggle_detail_keterangan_lowongan" data-id_lowongan="<?= $lowongan_pekerjaan['id_lowongan'] ?>">
                             <i data-feather="list" class="me-1"></i>
