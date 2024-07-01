@@ -181,25 +181,15 @@
     let passwordConfirmHelp = document.getElementById('xpassword_confirm_help');
 
     passwordConfirm.addEventListener('keyup', function() {
-      if (password.value !== passwordConfirm.value) {
-        passwordHelp.classList.remove('d-none');
-        passwordConfirmHelp.classList.remove('d-none');
-      } else {
-        passwordHelp.classList.add('d-none');
-        passwordConfirmHelp.classList.add('d-none');
-      }
-    });
-
-    passwordToggle.addEventListener('click', function() {
-      password.getAttribute('type') === 'password' ?
-        password.setAttribute('type', 'text') :
-        password.setAttribute('type', 'password');
+      initIsPasswordSame(password, passwordConfirm, passwordHelp, passwordConfirmHelp);
     });
 
     passwordConfirmToggle.addEventListener('click', function() {
-      passwordConfirm.getAttribute('type') === 'password' ?
-        passwordConfirm.setAttribute('type', 'text') :
-        passwordConfirm.setAttribute('type', 'password');
+      initTogglePassword(passwordConfirm);
+    });
+
+    passwordToggle.addEventListener('click', function() {
+      initTogglePassword(password);
     });
 
 
