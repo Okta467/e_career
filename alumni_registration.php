@@ -30,9 +30,6 @@
                 <div class="card-body">
                   <form action="alumni_registration_save.php" method="POST" id="alumni_registration_form">
 
-                    <input type="hidden" name="xid_alumni" id="xid_alumni" required>
-                    <input type="hidden" name="xid_pengguna" id="xid_pengguna" required>
-
                     <div class="mb-3">
                       <label class="small mb-1" for="xnisn">NISN (10 Digit) <span class="text-danger fw-bold">*</span></label>
                       <input class="form-control mb-1 xnisn" id="xnisn" type="text" name="xnisn" minlength="10" maxlength="10" placeholder="Enter nisn" required>
