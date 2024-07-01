@@ -74,6 +74,7 @@ else :
                       <th>Jenis</th>
                       <th>Nama Lowongan</th>
                       <th>Penempatan</th>
+                      <th>Status</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
@@ -108,6 +109,8 @@ else :
                       ORDER BY g.id DESC");
 
                     while ($lamaran_pekerjaan = mysqli_fetch_assoc($query_lamaran_pekerjaan)):
+                      $status_lamaran = $lamaran_pekerjaan['status_lamaran'];
+                      $formatted_status_lamaran = ucwords(str_replace('_', ' ', $status_lamaran));
                     ?>
 
                       <tr>
@@ -121,6 +124,31 @@ else :
                         <td><?= $lamaran_pekerjaan['jenis_pekerjaan'] ?></td>
                         <td><?= $lamaran_pekerjaan['nama_lowongan'] ?></td>
                         <td><?= $lamaran_pekerjaan['penempatan'] ?></td>
+                        <td>
+                          
+                          <?php if ($status_lamaran === 'tidak_lolos') : ?>
+                            
+                            <span class="badge bg-red-soft text-red"><?= $formatted_status_lamaran ?></span>
+                            
+                          <?php elseif ($status_lamaran === 'pemberkasan') : ?>
+                            
+                            <span class="badge bg-purple-soft text-purple"><?= $formatted_status_lamaran ?></span>
+                            
+                          <?php elseif ($status_lamaran === 'interview'): ?>
+                            
+                            <span class="badge bg-blue-soft text-blue"><?= $formatted_status_lamaran ?></span>
+  
+                          <?php elseif ($status_lamaran === 'lolos'): ?>
+                            
+                            <span class="badge bg-green-soft text-green"><?= $formatted_status_lamaran ?></span>
+                          
+                          <?php else: ?>
+
+                            <span class="badge bg-secondary-dark text-dark"><?= $formatted_status_lamaran ?></span>
+                            
+                          <?php endif ?>
+                          
+                        </td>
                         <td>
                           <button class="btn btn-datatable btn-icon btn-transparent-dark me-2 toggle_modal_ubah"
                             data-id_lamaran_pekerjaan="<?= $lamaran_pekerjaan['id_lamaran_pekerjaan'] ?>">
