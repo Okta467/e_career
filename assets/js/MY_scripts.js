@@ -42,6 +42,8 @@ function initSelect2(selector, options) {
 /**
  * Show/hide value of password input
  * 
+ * Note: wrap this function in event handle like on click event
+ * 
  * @param {*} elPassword password element
  */
 function initTogglePassword(elPassword) {
@@ -56,6 +58,8 @@ function initTogglePassword(elPassword) {
  * Check if two password input is the same
  * 
  * Show help (notice text below input) element if true, hide if not
+ * 
+ * Note: wrap this function in event handle like on keyup event
  * 
  * @param {*} elPassword 
  * @param {*} elPasswordConfirm 
