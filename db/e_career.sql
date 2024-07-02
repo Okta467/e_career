@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2024 at 06:47 PM
+-- Generation Time: Jul 02, 2024 at 02:43 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -48,7 +48,7 @@ CREATE TABLE `tbl_alumni` (
 --
 
 INSERT INTO `tbl_alumni` (`id`, `id_pengguna`, `id_kelas`, `nisn`, `nama_alumni`, `jk`, `alamat`, `tmp_lahir`, `tgl_lahir`, `no_telp`, `email`, `created_at`, `updated_at`) VALUES
-(1, 23, 31, '9991814928', 'Okta Alfiansyah', 'l', 'Kertapati', 'Palembang', '1999-10-10', '6262620877990550', 'oktaalfiansyah@gmail.com', '2024-06-30 02:43:23', '2024-06-30 02:43:23'),
+(1, 23, 31, '9991814928', 'Okta Alfiansyah', 'l', 'Kertapati', 'Palembang', '1999-10-10', '6262626262087799', 'oktaalfiansyah@gmail.com', '2024-07-01 21:47:35', '2024-07-01 21:47:35'),
 (3, 24, 31, '9991814872', 'Bima Satria', 'l', 'Gang Duren', 'Palembang', '2024-05-08', '087765432345', 'bimasatria@gmail.com', '2024-06-30 02:44:24', '2024-06-30 02:44:24'),
 (4, NULL, 31, '9997672534', 'Arief Rahman', 'l', 'Jakabaring', 'Palembang', '2024-05-27', '087700111100', 'ariefrahman@gmail.com', '2024-06-30 02:44:24', '2024-06-30 02:44:24'),
 (5, NULL, 31, '9987652345', 'Benny Setiawan', 'l', 'Palembang', 'Palembang', '1998-05-01', '6262620819920019', 'bennysetiawan@gmail.com', '2024-06-30 02:44:24', '2024-06-30 02:44:24'),
@@ -381,7 +381,8 @@ CREATE TABLE `tbl_lamaran_pekerjaan` (
 --
 
 INSERT INTO `tbl_lamaran_pekerjaan` (`id`, `id_lowongan`, `id_alumni`, `status_lamaran`, `keterangan_lamaran`, `created_at`, `updated_at`) VALUES
-(2, 2, 1, 'interview', '', '2024-07-01 13:58:06', NULL);
+(2, 2, 1, 'pemberkasan', '', '2024-07-01 13:58:06', '2024-07-01 20:59:02'),
+(3, 1, 1, 'pemberkasan', '', '2024-07-02 00:41:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -410,7 +411,9 @@ CREATE TABLE `tbl_lowongan` (
 
 INSERT INTO `tbl_lowongan` (`id`, `id_perusahaan`, `id_jenis_pekerjaan`, `id_klasifikasi_pekerjaan`, `nama_lowongan`, `penempatan`, `batas_bawah_gaji`, `batas_atas_gaji`, `tipe_gaji`, `keterangan_lowongan`, `created_at`, `updated_at`) VALUES
 (1, 3, 1, 18, 'Fullstack Web Developer', 'Palembang', 5000000, 10000000, 'bulanan', 'test', '2024-06-30 01:25:50', NULL),
-(2, 6, 1, 12, 'Web Programmer', 'Jakarta Selatan', 6500000, 8500000, 'bulanan', '**Qualifications and Experience**\r\n\r\n* Required for Bachelor Degree (S1) Information System or relevant study\r\n* Previous working experience as Web Programmer or Developer min. 2 year(s)\r\n* Proficiency skill in Framework NET (MVC/MVP) and .NET Core\r\n* Proficiency skill in RDBMS concept (Function, Stored Procedure)\r\n* Proficiency skill in OPEN/REST API concept\r\n* Mastering Programming Language C#, ASP.NET, HTML and CSS\r\n* Deep Understanding about OOP concept\r\n* Adaptive and Able to work in team\r\n* A Good Problem Solver\r\n \r\n\r\n**Tasks and Responsibilities**\r\n\r\n* Developing applications using programming languages that can be used in the .NET framework\r\n* Performing quality checks on applications prior to launch and addressing any errors or bugs found\r\n* Conducting routine maintenance on company applications to ensure responsiveness and functionality, and developing new applications when necessary\r\n \r\n\r\n**Benefits**\r\n\r\n* Basic Salary\r\n* THR (Proportional before 1year)\r\n* Incentive and Bonus Performance (after probation)\r\n* Meal Allowance\r\n* BPJS\r\n* Health Insurance\r\n* Sports/Fitness Allowance\r\n* Hybrid (WFH) 4:1                      ', '2024-06-30 23:35:15', '2024-07-01 11:50:10');
+(2, 6, 1, 18, 'Web Programmer', 'Jakarta Selatan', 6500000, 8500000, 'bulanan', '**Qualifications and Experience**\r\n\r\n* Required for Bachelor Degree (S1) Information System or relevant study\r\n* Previous working experience as Web Programmer or Developer min. 2 year(s)\r\n* Proficiency skill in Framework NET (MVC/MVP) and .NET Core\r\n* Proficiency skill in RDBMS concept (Function, Stored Procedure)\r\n* Proficiency skill in OPEN/REST API concept\r\n* Mastering Programming Language C#, ASP.NET, HTML and CSS\r\n* Deep Understanding about OOP concept\r\n* Adaptive and Able to work in team\r\n* A Good Problem Solver\r\n \r\n\r\n**Tasks and Responsibilities**\r\n\r\n* Developing applications using programming languages that can be used in the .NET framework\r\n* Performing quality checks on applications prior to launch and addressing any errors or bugs found\r\n* Conducting routine maintenance on company applications to ensure responsiveness and functionality, and developing new applications when necessary\r\n \r\n\r\n**Benefits**\r\n\r\n* Basic Salary\r\n* THR (Proportional before 1year)\r\n* Incentive and Bonus Performance (after probation)\r\n* Meal Allowance\r\n* BPJS\r\n* Health Insurance\r\n* Sports/Fitness Allowance\r\n* Hybrid (WFH) 4:1                      ', '2024-06-30 23:35:15', '2024-07-01 22:07:52'),
+(3, 6, 3, 2, 'Test Lowongan Baru1', 'Plaju, Palembang', 1500000, 2500000, 'bulanan', '\r\n**Kualifikasi**\r\n\r\n* Test kualifikasi #1\r\n* Test kualifikasi #2\r\n* Test kualifikasi #3\r\n* Test kualifikasi #4\r\n* Test kualifikasi #5\r\n \r\n\r\n**Tugas dan Tanggung Jawab**\r\n\r\n* Test tugas dan tanggung jawab #1\r\n* Test tugas dan tanggung jawab #2\r\n* Test tugas dan tanggung jawab #3\r\n \r\n\r\n**Benefits**\r\n\r\n* Gaji\r\n* THR\r\n* BPJS\r\n* Asuransi kesehatan', '2024-07-01 19:56:06', '2024-07-01 19:57:56'),
+(5, 6, 3, 2, 'Test Lowongan', 'Palembang', 0, 0, 'bulanan', '\r\n**Qualifications &amp;amp;amp; Experience**\r\n\r\n* Required for Bachelor Degree (S1) Information System or relevant study\r\n* Previous working experience as Web Programmer or Developer min. 2 year(s)\r\n* Proficiency skill in Framework NET (MVC/MVP) and .NET Core\r\n* Proficiency skill in RDBMS concept (Function, Stored Procedure)\r\n* Proficiency skill in OPEN/REST API concept\r\n* Mastering Programming Language C#, ASP.NET, HTML and CSS\r\n* Deep Understanding about OOP concept\r\n* Adaptive and Able to work in team\r\n* A Good Problem Solver\r\n \r\n\r\n**Tasks &amp;amp;amp; Responsibilities**\r\n\r\n* Developing applications using programming languages that can be used in the .NET framework\r\n* Performing quality checks on applications prior to launch and addressing any errors or bugs found\r\n* Conducting routine maintenance on company applications to ensure responsiveness and functionality, and developing new applications when necessary\r\n \r\n\r\n**Benefits**\r\n\r\n* Basic Salary\r\n* THR (Proportional before 1year)\r\n* Incentive &amp;amp;amp; Bonus Performance (after probation)\r\n* Meal Allowance\r\n* BPJS\r\n* Health Insurance\r\n* Sports/Fitness Allowance\r\n* Hybrid (WFH) 4:1', '2024-07-01 20:08:19', '2024-07-01 20:08:27');
 
 -- --------------------------------------------------------
 
@@ -503,16 +506,16 @@ CREATE TABLE `tbl_pengguna` (
 --
 
 INSERT INTO `tbl_pengguna` (`id`, `username`, `password`, `hak_akses`, `created_at`, `last_login`) VALUES
-(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2024-07-01 11:43:49'),
-(23, 'okta467', '$2y$10$0BEb6jl.Z7dieqJQHShYruxxEarz6AsswLg4EoAImdC0XAirF/OEO', 'alumni', '2024-06-24 18:13:00', '2024-06-30 19:00:26'),
+(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2024-07-01 16:36:36'),
+(23, 'okta467', '$2y$10$0BEb6jl.Z7dieqJQHShYruxxEarz6AsswLg4EoAImdC0XAirF/OEO', 'alumni', '2024-06-24 18:13:00', '2024-07-01 16:31:55'),
 (24, 'bimasatria', '$2y$10$PJ0tlPZHqurX0xzM2NA.XO3AXBpKr6oPbWI6m2u2V8haaDMfpk2J.', 'alumni', '2024-06-24 18:17:17', NULL),
 (25, '196506121990022003', '$2y$10$r6i9ouw57cTTevcboVpfxuaaeGE.LqvH0ivtFunGnpjhus3jtxu1q', 'kepala_sekolah', '2024-06-24 18:29:06', '2024-06-27 13:22:34'),
-(33, 'bankbri', '$2y$10$TN/rveG929csN1Cbx3xhAeR0cNtWVTNlgafk9Z37E0ZgkCUqNmx66', 'perusahaan', '2024-06-26 13:30:09', '2024-07-01 11:43:46'),
+(33, 'bankbri', '$2y$10$TN/rveG929csN1Cbx3xhAeR0cNtWVTNlgafk9Z37E0ZgkCUqNmx66', 'perusahaan', '2024-06-26 13:30:09', '2024-07-01 16:36:32'),
 (34, 'iconplus', '$2y$10$nQRKxiCx.1L39VwkwEF3buNhiqt7TuDHat6P5IiWucR0VPSZeCBKa', 'perusahaan', '2024-06-27 00:30:37', NULL),
 (35, '1989986520190220', '$2y$10$I32/sA1ZI3lAnUTAOmbNV.AnHZaLXF0tjOLOfO8kFdZ14v8am73Te', 'guru', '2024-06-27 14:46:25', NULL),
-(36, 'paninasset', '$2y$10$DF.BZjYIVNy9kPkyMsPnjOTengyiL./OJMgg/xwdpxf3u1Ig4DENS', 'perusahaan', '2024-06-30 23:32:00', NULL),
+(36, 'paninasset', '$2y$10$KBt4KgKSPVLKO5wbxeZKw.5VDBJZdZ96CuiQ4j4a1anLejsDTTAHK', 'perusahaan', '2024-06-30 23:32:00', '2024-07-01 16:31:53'),
 (42, '9986024922', '$2y$10$e4VH3f3ONL6hDMqubypEVuZF6twqHD1d4h4ZT6eAcN3beHkbV93LC', 'alumni', '2024-07-01 16:03:25', '2024-07-01 11:22:10'),
-(43, 'bankbni', '$2y$10$4aDmp/oKXi9TIxy/QpXvReSgT3r1tF.DbVO10D/ckoL8udCelYp9a', 'perusahaan', '2024-07-01 16:43:36', NULL);
+(43, 'bankbni', '$2y$10$4aDmp/oKXi9TIxy/QpXvReSgT3r1tF.DbVO10D/ckoL8udCelYp9a', 'perusahaan', '2024-07-01 16:43:36', '2024-07-01 14:41:01');
 
 -- --------------------------------------------------------
 
@@ -783,13 +786,13 @@ ALTER TABLE `tbl_klasifikasi_pekerjaan`
 -- AUTO_INCREMENT for table `tbl_lamaran_pekerjaan`
 --
 ALTER TABLE `tbl_lamaran_pekerjaan`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_lowongan`
 --
 ALTER TABLE `tbl_lowongan`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_pangkat_golongan`
@@ -819,7 +822,7 @@ ALTER TABLE `tbl_perusahaan`
 -- AUTO_INCREMENT for table `tbl_prestasi_alumni`
 --
 ALTER TABLE `tbl_prestasi_alumni`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_tahun_seleksi`
