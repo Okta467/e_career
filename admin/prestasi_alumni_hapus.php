@@ -11,7 +11,6 @@
     include_once '../config/connection.php';
     
     $id_prestasi_alumni = $_GET['xid_prestasi_alumni'];
-    $id_alumni = $_POST['xid_alumni'];
     
     // Get prestasi alumni to delete current file_prestasi after data deletion
     $stmt_prestasi_alumni = mysqli_stmt_init($connection);
@@ -22,12 +21,6 @@
 
     $result = mysqli_stmt_get_result($stmt_prestasi_alumni);
     $prestasi_alumni = mysqli_fetch_assoc($result);
-
-    if ($prestasi_alumni['id_alumni'] != $id_alumni) {
-        $_SESSION['msg'] = 'Tidak boleh menghapus data alumni lain!';
-        echo "<meta http-equiv='refresh' content='0;prestasi_alumni.php?go=prestasi_alumni'>";
-        return;
-    }
 
     // tbl_prestasi_alumni data statement and execution
     $stmt_hapus = mysqli_stmt_init($connection);

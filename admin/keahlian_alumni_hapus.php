@@ -11,7 +11,6 @@
     include_once '../config/connection.php';
     
     $id_keahlian_alumni = $_GET['xid_keahlian_alumni'];
-    $id_alumni = $_POST['xid_alumni'];
     
     // Get keahlian alumni to delete current file_keahlian after data deletion
     $stmt_keahlian_alumni = mysqli_stmt_init($connection);
@@ -22,12 +21,6 @@
 
     $result = mysqli_stmt_get_result($stmt_keahlian_alumni);
     $keahlian_alumni = mysqli_fetch_assoc($result);
-
-    if ($keahlian_alumni['id_alumni'] != $id_alumni) {
-        $_SESSION['msg'] = 'Tidak boleh menghapus data alumni lain!';
-        echo "<meta http-equiv='refresh' content='0;keahlian_alumni.php?go=keahlian_alumni'>";
-        return;
-    }
 
     // tbl_keahlian_alumni data statement and execution
     $stmt_hapus = mysqli_stmt_init($connection);
